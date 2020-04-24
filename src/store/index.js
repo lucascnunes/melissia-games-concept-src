@@ -16,6 +16,9 @@ const store = new Vuex.Store({
     },
     toggleNav(state) {
       state.isNavOpen = !state.isNavOpen
+    },
+    toggleNavOff(state) {
+      state.isNavOpen = false
     }
   },
   modules: {

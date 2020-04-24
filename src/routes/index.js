@@ -30,8 +30,8 @@ router.beforeResolve((to, from, next) => {
   if (to.name) {
     // Start the route progress bar.
     store.commit('setLoadingStatus', true);
-    store.commit('toggleNav');
   }
+  store.commit('toggleNavOff');
   next()
 })
 
