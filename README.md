@@ -1,6 +1,8 @@
 # Melissia Games Concept in vuejs
 
-## Contains
+https://mystifying-brahmagupta-8abe3f.netlify.app/
+
+## Content dependencies
 
 - Vue-router
 - Vuex
@@ -53,7 +55,7 @@ npm run lint
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### Contact information
+## Contact information
 
 **Lucas Nunes**
 
