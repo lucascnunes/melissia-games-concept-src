@@ -1,6 +1,6 @@
 # Melissia Games Concept in vuejs
 
-## Contains
+## Content dependencies
 
 - Vue-router
 - Vuex
@@ -53,7 +53,7 @@ npm run lint
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### Contact information
+## Contact information
 
 **Lucas Nunes**
 
