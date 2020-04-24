@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="container py-10">
+    <div class="container py-10 px-4">
       <div class="float-right" id="google_translate_element"></div>
 
       <h4>TERMS OF USE</h4>
@@ -93,9 +93,7 @@
         Site.
       </p>
 
-      <h4>
-        DISCLAIMERS AND LIMITATION OF LIABILITY
-      </h4>
+      <h4>DISCLAIMERS AND LIMITATION OF LIABILITY</h4>
       <p>
         User agrees that use of the Site and the Services is at the User's sole
         risk. Neither Melissia-Games, nor its affiliates, nor any of their
@@ -199,9 +197,7 @@
           Underscore is allowed only once and can only occur between a minimum
           of 2 characters.
         </li>
-        <li>
-          The letters either side of an underscore(_) must be capitalized.
-        </li>
+        <li>The letters either side of an underscore(_) must be capitalized.</li>
       </ul>
       <p></p>
 
@@ -273,11 +269,11 @@ export default {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: "en",
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
         },
         id
       );
-    },
-  },
+    }
+  }
 };
 </script>

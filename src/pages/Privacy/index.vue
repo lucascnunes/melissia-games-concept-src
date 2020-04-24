@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="container py-10">
+    <div class="container py-10 px-4">
       <div class="float-right" id="google_translate_element"></div>
 
       <h4>PRIVACY POLICY</h4>
@@ -12,9 +12,7 @@
         with our website.
       </p>
 
-      <h4>
-        What personal information do we collect from users that visit website?
-      </h4>
+      <h4>What personal information do we collect from users that visit website?</h4>
 
       <p>
         When registering on our site, as appropriate, you will be asked to enter
@@ -37,8 +35,8 @@
 
       <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - To allow us to better service you
-        regarding features or in responding to your support requests.<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - To send periodic emails regarding your
+        regarding features or in responding to your support requests.
+        <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - To send periodic emails regarding your
         account or other services.
       </p>
 
@@ -78,8 +76,8 @@
       </p>
 
       <p>
-        We use cookies to:<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Understand and save user's preferences
+        We use cookies to:
+        <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Understand and save user's preferences
         for future visits.
       </p>
 
@@ -135,15 +133,15 @@
       <p>Users are able to review change their personal information:</p>
 
       <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - By logging in to their account<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - By sending us a support ticket
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - By logging in to their account
+        <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - By sending us a support ticket
       </p>
 
       <p>Users are able to request the removal of their information:</p>
 
       <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - By sending us an email<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - By sending us a support ticket
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - By sending us an email
+        <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - By sending us a support ticket
       </p>
 
       <h4>How does our site handle do not track signals?</h4>
@@ -162,7 +160,9 @@
         us using the information below.
       </p>
 
-      <span id="contactemail">support@melissia-games.net</span><br /><br />
+      <span id="contactemail">support@melissia-games.net</span>
+      <br />
+      <br />
     </div>
   </div>
 </template>
@@ -196,11 +196,11 @@ export default {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: "en",
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
         },
         id
       );
-    },
-  },
+    }
+  }
 };
 </script>
