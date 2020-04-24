@@ -1,36 +1,88 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-    <router-link
-      class="navbar-brand"
-      :to="{
+    <router-link class="navbar-brand mr-auto" :to="{
         name: 'Home',
-      }"
-    >
+      }">
       <img src="/img/symbol.png" class="symbol" /> Melissia Games
     </router-link>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" @click="showNav" aria-label="Toggle navigation">
+      <font-awesome-icon icon="bars" size="2x" class="text-light" v-if="!isNavOpen" />
+      <font-awesome-icon icon="times" size="2x" class="text-light" v-else />
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <Sidebar>
+      <router-link class="navbar-brand mr-auto" :to="{
+        name: 'Home',
+      }">
+        <img src="/img/symbol.png" class="symbol" /> Melissia Games
+      </router-link>
+      <ul class="sidebar-panel-nav">
+        <li>
+          <router-link :to="{ name: 'Terms' }">
+            {{
+            $t("Terms of Use")
+            }}
+          </router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'Privacy' }">
+            {{
+            $t("Privacy")
+            }}
+          </router-link>
+        </li>
+        <li>
+          <a>
+            {{
+            $t("Forum")
+            }}
+          </a>
+        </li>
+        <li>
+          {{ $t("Lang") }}
+          <div class="d-flex flex-wrap justify-content-between pt-3">
+            <button
+              class="btn btn-sm btn-link text-light border border-light m-2"
+              v-for="(lang, i) in langs"
+              :key="i"
+              @click="changeLang(lang)"
+            >{{ lang }}</button>
+          </div>
+        </li>
+        <li class="py-3 text-center">
+          <a href="/account" class="btn btn-light text-dark px-4">
+            <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" size="xs" />
+            {{ $t("Create your account") }}
+          </a>
+        </li>
+        <li>
+          <a href="https://discord.gg/MT5Uu2Y" target="_blank" rel="noopener noreferrer">
+            <font-awesome-icon :icon="['fab', 'discord']" class="mr-2" />Discord
+          </a>
+        </li>
+        <li>
+          <a href="https://t.me/melissia_games" target="_blank" rel="noopener noreferrer">
+            <font-awesome-icon :icon="['fab', 'telegram']" class="mr-2" />Telegram
+          </a>
+        </li>
+      </ul>
+    </Sidebar>
+
+    <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item nav-underline active">
-          <router-link class="nav-link" :to="{ name: 'Terms' }">{{
+          <router-link class="nav-link" :to="{ name: 'Terms' }">
+            {{
             $t("Terms of Use")
-          }}</router-link>
+            }}
+          </router-link>
         </li>
         <li class="nav-item nav-underline">
-          <router-link class="nav-link" :to="{ name: 'Privacy' }">{{
+          <router-link class="nav-link" :to="{ name: 'Privacy' }">
+            {{
             $t("Privacy")
-          }}</router-link>
+            }}
+          </router-link>
         </li>
         <li class="nav-item nav-underline">
           <a class="nav-link" href="/forum">Forum</a>
@@ -43,9 +95,7 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-          >
-            {{ $t("Lang") }}
-          </a>
+          >{{ $t("Lang") }}</a>
           <div
             v-bind:class="lang_dropdown ? 'show' : ''"
             class="dropdown-menu"
@@ -57,17 +107,12 @@
               class="dropdown-item"
               href="#"
               @click="changeLang(lang)"
-              >{{ lang }}</a
-            >
+            >{{ lang }}</a>
           </div>
         </li>
         <li class="nav-item">
           <a href="/account" class="btn btn-light px-4">
-            <font-awesome-icon
-              :icon="['fa', 'user-plus']"
-              class="mr-2"
-              size="xs"
-            />
+            <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" size="xs" />
             {{ $t("Create your account") }}
           </a>
         </li>
@@ -80,9 +125,7 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-          >
-            Username
-          </a>
+          >Username</a>
           <div
             v-bind:class="user_dropdown ? 'show' : ''"
             class="dropdown-menu dropdown-menu-right"
@@ -99,17 +142,22 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
+import Sidebar from "./Sidebar";
+
 export default {
   name: "Navigation",
   data() {
     return {
       langs: ["en", "pt-br", "fr", "de", "es", "ru", "tu", "kr"],
       lang_dropdown: false,
-      user_dropdown: false,
+      user_dropdown: false
     };
   },
   methods: {
+    ...mapMutations({
+      openNav: "toggleNav"
+    }),
     langDropdown() {
       this.lang_dropdown = !this.lang_dropdown;
       this.user_dropdown = false;
@@ -121,10 +169,17 @@ export default {
     changeLang(val) {
       this.$i18n.locale = val;
     },
+    showNav() {
+      this.openNav();
+    }
   },
   computed: {
-    ...mapState("auth", ["isLogged"]),
+    ...mapState(["isNavOpen"]),
+    ...mapState("auth", ["isLogged"])
   },
+  components: {
+    Sidebar
+  }
 };
 </script>
 

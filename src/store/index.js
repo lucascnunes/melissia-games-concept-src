@@ -7,11 +7,15 @@ import auth from './modules/auth';
 
 const store = new Vuex.Store({
   state: {
-    loading: true
+    loading: true,
+    isNavOpen: false
   },
   mutations: {
     setLoadingStatus(state, value) {
       state.loading = value
+    },
+    toggleNav(state) {
+      state.isNavOpen = !state.isNavOpen
     }
   },
   modules: {

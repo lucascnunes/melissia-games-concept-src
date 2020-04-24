@@ -11,7 +11,9 @@ import {
   library
 } from '@fortawesome/fontawesome-svg-core';
 import {
-  faUserPlus
+  faUserPlus,
+  faBars,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faDiscord,
@@ -24,7 +26,7 @@ import {
 
 import i18n from './i18n'
 
-library.add(faUserPlus, faDiscord, faTelegram);
+library.add(faUserPlus, faDiscord, faTelegram, faBars, faTimes);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(VueCarousel);

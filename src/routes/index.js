@@ -15,6 +15,12 @@ allRoutes = allRoutes.concat(
 const routes = allRoutes;
 
 const router = new VueRouter({
+  scrollBehavior() {
+    return {
+      x: 0,
+      y: 0
+    };
+  },
   mode: 'history',
   routes
 });
@@ -24,6 +30,7 @@ router.beforeResolve((to, from, next) => {
   if (to.name) {
     // Start the route progress bar.
     store.commit('setLoadingStatus', true);
+    store.commit('toggleNav');
   }
   next()
 })
