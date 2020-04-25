@@ -37,6 +37,7 @@ export default {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  transition: all 3s;
 }
 
 @keyframes pulse {

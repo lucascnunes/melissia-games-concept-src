@@ -108,7 +108,7 @@ export default {
 }
 
 .VueCarousel-slide-active {
-  transition: all 0.5s !important;
+  transition: all 0.8s !important;
   opacity: 1 !important;
 }
 .VueCarousel-pagination {
@@ -119,7 +119,7 @@ export default {
   position: absolute !important;
   color: #fff !important;
   left: 80px !important;
-  transition: opacity 0.2s !important;
+  transition: opacity 4s !important;
 }
 .VueCarousel-navigation-button.VueCarousel-navigation-prev.VueCarousel-navigation--disabled {
   opacity: 0;
@@ -128,7 +128,7 @@ export default {
   position: absolute !important;
   color: #fff !important;
   right: 80px !important;
-  transition: opacity 0.2s !important;
+  transition: opacity 4s !important;
 }
 .VueCarousel-navigation-button.VueCarousel-navigation-next.VueCarousel-navigation--disabled {
   opacity: 0;
