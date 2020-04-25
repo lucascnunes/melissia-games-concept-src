@@ -204,3 +204,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.wrapper {
+  color: var(--font-color) !important;
+}
+</style>

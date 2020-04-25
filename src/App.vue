@@ -38,9 +38,10 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:wght@300;400;600;700&display=swap");
 :root {
-  --symbol-invert: invert(0);
+  --symbol-invert: invert(1);
+  --symbol-inverted: invert(0);
   --font-color: #fff;
-  --bg-color: #fff;
+  --bg-color: #232323;
   --footer-bg-color: #fff;
   --footer-font-color: #232323;
   --sidebar-bg-color: #fff;
@@ -52,9 +53,10 @@ export default {
 }
 
 [data-theme="dark"] {
-  --symbol-invert: invert(1);
-  --font-color: #fff;
-  --bg-color: #232323;
+  --symbol-invert: invert(0);
+  --symbol-inverted: invert(1);
+  --font-color: #232323;
+  --bg-color: #fff;
   --footer-bg-color: #232323;
   --footer-font-color: #fff;
   --sidebar-bg-color: #232323;
@@ -82,10 +84,10 @@ footer {
 .symbol {
   width: 30px;
   height: 30px;
-  filter: invert(1);
+  filter: var(--symbol-invert);
 }
 .symbol-sidebar {
-  filter: var(--symbol-invert) !important;
+  filter: var(--symbol-inverted) !important;
 }
 .py-10 {
   padding: 10em 0;

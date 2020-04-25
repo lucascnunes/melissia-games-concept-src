@@ -10,8 +10,9 @@ import Slider from "../../components/Slider";
 export default {
   name: "Home",
   components: {
-    Slider,
-  },
+    Slider
+  }
 };
 </script>
-<style scoped></style>
+<style scoped>
+</style>

@@ -32,8 +32,7 @@
             rel="noopener noreferrer"
             class="btn btn-light px-5 py-2 mr-3 mb-2"
           >
-            <font-awesome-icon :icon="['fab', 'telegram']" class="mr-2" />
-            Telegram
+            <font-awesome-icon :icon="['fab', 'telegram']" class="mr-2" />Telegram
           </a>
           <a
             href="https://discord.gg/MT5Uu2Y"
@@ -41,8 +40,7 @@
             rel="noopener noreferrer"
             class="btn btn-light px-5 py-2 mb-2"
           >
-            <font-awesome-icon :icon="['fab', 'discord']" class="mr-2" />
-            Discord
+            <font-awesome-icon :icon="['fab', 'discord']" class="mr-2" />Discord
           </a>
         </div>
       </slide>
@@ -59,13 +57,15 @@ export default {
     document
       .getElementsByClassName("VueCarousel-slide")[0]
       .classList.add("VueCarousel-slide-active");
-  },
+  }
 };
 </script>
 
 <style>
 .slider-hero {
   display: flex;
+  color: #fff;
+  background: #232323;
 }
 .VueCarousel-slide {
   height: 100vh;

@@ -10,8 +10,8 @@ import { mapState } from "vuex";
 export default {
   name: "Loading",
   computed: {
-    ...mapState(["loading"]),
-  },
+    ...mapState(["loading"])
+  }
 };
 </script>
 
@@ -20,6 +20,7 @@ export default {
   width: 90px;
   height: 90px;
   animation: pulse 2s infinite;
+  filter: invert(1);
 }
 .absolute {
   position: absolute;

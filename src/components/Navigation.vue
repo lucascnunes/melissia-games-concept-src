@@ -1,13 +1,29 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-transparent noselect">
-    <router-link class="navbar-brand mr-auto" :to="{
+  <nav
+    class="navbar navbar-expand-lg navbar-light bg-transparent noselect"
+    v-bind:style="$route.name === 'Home' ? 'box-shadow: 0px 0px 0px transparent !important;' : ''"
+  >
+    <router-link
+      class="navbar-brand mr-auto"
+      :to="{
         name: 'Home',
-      }">
-      <img src="/img/symbol.png" class="symbol" /> Melissia Games
+      }"
+      v-bind:class="$route.name === 'Home' ? 'force-light-text' : ''"
+    >
+      <img
+        src="/img/symbol.png"
+        class="symbol"
+        v-bind:style="$route.name === 'Home' ? 'filter: invert(1) !important;' : ''"
+      /> Melissia Games
     </router-link>
-    <button class="navbar-toggler" type="button" @click="showNav()" aria-label="Toggle navigation">
-      <font-awesome-icon icon="bars" size="2x" class="text-light" v-if="!isNavOpen" />
-      <font-awesome-icon icon="times" size="2x" class="text-light" v-else />
+    <button
+      class="btn btn-light d-lg-none"
+      type="button"
+      @click="showNav()"
+      aria-label="Toggle navigation"
+    >
+      <font-awesome-icon icon="bars" size="2x" v-if="!isNavOpen" />
+      <font-awesome-icon icon="times" size="2x" v-else />
     </button>
 
     <Sidebar>
@@ -84,27 +100,39 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" @click="changeTheme()" style="cursor: pointer;">
-            <font-awesome-icon icon="sun" size="1x" class="text-light" v-show="theme === 'dark'" />
-            <font-awesome-icon icon="moon" size="1x" class="text-light" v-show="theme === 'light'" />
-          </a>
+          <button class="btn btn-light" @click="changeTheme()">
+            <font-awesome-icon icon="sun" size="1x" v-show="theme === 'dark'" />
+            <font-awesome-icon icon="moon" size="1x" v-show="theme === 'light'" />
+          </button>
         </li>
         <li class="nav-item nav-underline active">
-          <router-link class="nav-link" :to="{ name: 'Terms' }">
+          <router-link
+            class="nav-link"
+            :to="{ name: 'Terms' }"
+            v-bind:style="$route.name === 'Home' ? 'color: #fff !important' : ''"
+          >
             {{
             $t("Terms of Use")
             }}
           </router-link>
         </li>
         <li class="nav-item nav-underline">
-          <router-link class="nav-link" :to="{ name: 'Privacy' }">
+          <router-link
+            class="nav-link"
+            :to="{ name: 'Privacy' }"
+            v-bind:style="$route.name === 'Home' ? 'color: #fff !important' : ''"
+          >
             {{
             $t("Privacy")
             }}
           </router-link>
         </li>
         <li class="nav-item nav-underline">
-          <a class="nav-link" href="/forum">Forum</a>
+          <a
+            class="nav-link"
+            href="/forum"
+            v-bind:style="$route.name === 'Home' ? 'color: #fff !important' : ''"
+          >Forum</a>
         </li>
         <li class="nav-item nav-underline dropdown" @click="langDropdown">
           <a
@@ -114,6 +142,7 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
+            v-bind:style="$route.name === 'Home' ? 'color: #fff !important' : ''"
           >{{ $t("Lang") }}</a>
           <div
             v-bind:class="lang_dropdown ? 'show' : ''"
@@ -214,15 +243,13 @@ export default {
   position: absolute !important;
   width: 100%;
   z-index: 99;
+  box-shadow: 10px -10px 30px #232323;
 }
 .navbar-brand {
   color: var(--font-color) !important;
 }
 .navbar-brand-sidebar {
   color: var(--sidebar-font-color) !important;
-}
-.text-light {
-  color: var(--sidebar-font-color);
 }
 .nav-item {
   margin: 0 auto;
@@ -232,7 +259,7 @@ export default {
   padding: 10px;
 }
 .nav-item .nav-link {
-  color: #fff !important;
+  color: var(--font-color) !important;
 }
 .nav-underline:before,
 .nav-underline:after {
@@ -275,5 +302,11 @@ export default {
 }
 .lang {
   color: var(--sidebar-font-color) !important;
+}
+.force-list-light-text li a {
+  color: #fff !important;
+}
+.force-light-text {
+  color: #fff !important;
 }
 </style>

@@ -9,6 +9,13 @@
 
 <script>
 export default {
-  name: "PageNotFound",
+  name: "PageNotFound"
 };
 </script>
+<style scoped>
+.wrapper,
+h1,
+h4 {
+  color: var(--font-color) !important;
+}
+</style>
