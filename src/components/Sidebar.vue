@@ -52,7 +52,7 @@ export default {
 
 .sidebar-panel {
   overflow-y: auto;
-  background-color: #232323;
+  background-color: var(--sidebar-bg-color);
   position: fixed;
   left: 0;
   top: 0;
@@ -60,6 +60,7 @@ export default {
   z-index: 999;
   padding: 3rem 20px 2rem 10px;
   width: 300px;
+  color: var(--sidebar-font-color);
 }
 .sidebar-panel ul {
   padding: 2em 10px;
@@ -67,16 +68,15 @@ export default {
 }
 .sidebar-panel ul li,
 .sidebar-panel a {
-  color: #fff;
+  color: var(--sidebar-font-color);
 }
 .sidebar-panel li {
   padding-bottom: 10px;
 }
 .sidebar-panel ul li a:hover,
 .sidebar-panel ul li a:active {
-  color: white;
+  color: var(--sidebar-font-color);
   text-decoration: none;
   border-bottom: 2px solid #fff;
-  padding-bottom: 3px;
 }
 </style>

@@ -1,21 +1,30 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent noselect">
     <router-link class="navbar-brand mr-auto" :to="{
         name: 'Home',
       }">
       <img src="/img/symbol.png" class="symbol" /> Melissia Games
     </router-link>
-    <button class="navbar-toggler" type="button" @click="showNav" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" @click="showNav()" aria-label="Toggle navigation">
       <font-awesome-icon icon="bars" size="2x" class="text-light" v-if="!isNavOpen" />
       <font-awesome-icon icon="times" size="2x" class="text-light" v-else />
     </button>
 
     <Sidebar>
-      <router-link class="navbar-brand mr-auto" :to="{
+      <div class="d-flex justify-content-between">
+        <router-link
+          class="navbar-brand navbar-brand-sidebar mr-auto"
+          :to="{
         name: 'Home',
-      }">
-        <img src="/img/symbol.png" class="symbol" /> Melissia Games
-      </router-link>
+      }"
+        >
+          <img src="/img/symbol.png" class="symbol symbol-sidebar" /> Melissia Games
+        </router-link>
+        <button class="btn btn-default btn-sm" @click="changeTheme()">
+          <font-awesome-icon icon="sun" size="1x" v-show="theme === 'dark'" />
+          <font-awesome-icon icon="moon" size="1x" v-show="theme === 'light'" />
+        </button>
+      </div>
       <ul class="sidebar-panel-nav">
         <li>
           <router-link :to="{ name: 'Terms' }">
@@ -42,7 +51,7 @@
           {{ $t("Lang") }}
           <div class="d-flex flex-wrap justify-content-between pt-3">
             <button
-              class="btn btn-sm btn-link text-light border border-light m-2"
+              class="btn btn-sm btn-light border m-2"
               v-for="(lang, i) in langs"
               :key="i"
               @click="changeLang(lang)"
@@ -50,7 +59,7 @@
           </div>
         </li>
         <li class="py-3 text-center">
-          <a href="/account" class="btn btn-light text-dark px-4">
+          <a href="/account" class="btn btn-light px-4">
             <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" size="xs" />
             {{ $t("Create your account") }}
           </a>
@@ -70,6 +79,12 @@
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" @click="changeTheme()" style="cursor: pointer;">
+            <font-awesome-icon icon="sun" size="1x" class="text-light" v-show="theme === 'dark'" />
+            <font-awesome-icon icon="moon" size="1x" class="text-light" v-show="theme === 'light'" />
+          </a>
+        </li>
         <li class="nav-item nav-underline active">
           <router-link class="nav-link" :to="{ name: 'Terms' }">
             {{
@@ -104,7 +119,7 @@
             <a
               v-for="(lang, i) in langs"
               :key="i"
-              class="dropdown-item"
+              class="dropdown-item lang"
               href="#"
               @click="changeLang(lang)"
             >{{ lang }}</a>
@@ -156,7 +171,8 @@ export default {
   },
   methods: {
     ...mapMutations({
-      openNav: "toggleNav"
+      openNav: "toggleNav",
+      setTheme: "setTheme"
     }),
     langDropdown() {
       this.lang_dropdown = !this.lang_dropdown;
@@ -171,10 +187,15 @@ export default {
     },
     showNav() {
       this.openNav();
+    },
+    changeTheme() {
+      if (this.theme == "light") this.setTheme("dark");
+      else this.setTheme("light");
+      document.documentElement.setAttribute("data-theme", this.theme);
     }
   },
   computed: {
-    ...mapState(["isNavOpen"]),
+    ...mapState(["isNavOpen", "theme"]),
     ...mapState("auth", ["isLogged"])
   },
   components: {
@@ -191,7 +212,13 @@ export default {
   z-index: 99;
 }
 .navbar-brand {
-  color: white !important;
+  color: var(--font-color) !important;
+}
+.navbar-brand-sidebar {
+  color: var(--sidebar-font-color) !important;
+}
+.text-light {
+  color: var(--sidebar-font-color);
 }
 .nav-item {
   margin: 0 auto;
@@ -201,7 +228,7 @@ export default {
   padding: 10px;
 }
 .nav-item .nav-link {
-  color: white !important;
+  color: #fff !important;
 }
 .nav-underline:before,
 .nav-underline:after {
@@ -224,7 +251,7 @@ export default {
 }
 .dropdown-menu.show {
   margin-top: 8px;
-  background-color: #232323;
+  background-color: var(--sidebar-bg-color) !important;
   border-radius: 0;
 }
 .dropdown-menu .dropdown-item {
@@ -236,5 +263,13 @@ export default {
 }
 .dropdown-toggle::after {
   margin-left: 15px !important;
+}
+.btn-light {
+  border: 1px solid var(--btn-border-color) !important;
+  background-color: var(--btn-bg-color) !important;
+  color: var(--btn-font-color) !important;
+}
+.lang {
+  color: var(--sidebar-font-color) !important;
 }
 </style>

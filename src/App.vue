@@ -4,12 +4,13 @@
     <navigation />
     <router-view />
     <footer>
-      © 2020 <strong>MELISSIA GAMES</strong>
+      © 2020
+      <strong>MELISSIA GAMES</strong>
       <br />
       {{
-        $t("THIS SITE IS IN NO WAY ASSOCIATED WITH OR ENDORSED BY {name}", {
-          name: "PEARL ABYSS",
-        })
+      $t("THIS SITE IS IN NO WAY ASSOCIATED WITH OR ENDORSED BY {name}", {
+      name: "PEARL ABYSS",
+      })
       }}
       ©
     </footer>
@@ -17,6 +18,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import Loading from "./components/Loading.vue";
 import Navigation from "./components/Navigation.vue";
 
@@ -24,23 +27,55 @@ export default {
   name: "App",
   components: {
     Loading,
-    Navigation,
+    Navigation
   },
+  computed: {
+    ...mapState(["theme"])
+  }
 };
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:wght@300;400;600;700&display=swap");
+:root {
+  --symbol-invert: invert(0);
+  --font-color: #fff;
+  --bg-color: #fff;
+  --footer-bg-color: #fff;
+  --footer-font-color: #232323;
+  --sidebar-bg-color: #fff;
+  --sidebar-font-color: #232323;
+  --btn-background-color: #fff;
+  --btn-font-color: #fff;
+  --btn-bg-color: #232323;
+  --btn-border-color: #232323;
+}
+
+[data-theme="dark"] {
+  --symbol-invert: invert(1);
+  --font-color: #fff;
+  --bg-color: #232323;
+  --footer-bg-color: #232323;
+  --footer-font-color: #fff;
+  --sidebar-bg-color: #232323;
+  --sidebar-font-color: #fff;
+  --btn-background-color: #232323;
+  --btn-font-color: #232323;
+  --btn-bg-color: #fff;
+  --btn-border-color: #fff;
+}
 #app {
   font-family: "Marcellus", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .wrapper {
-  background: #232323;
-  color: #fff;
+  background: var(--bg-color);
+  color: var(--font-color);
 }
 footer {
+  background: var(--footer-bg-color);
+  color: var(--footer-font-color);
   padding: 30px;
   font-size: 15px;
 }
@@ -48,6 +83,9 @@ footer {
   width: 30px;
   height: 30px;
   filter: invert(1);
+}
+.symbol-sidebar {
+  filter: var(--symbol-invert) !important;
 }
 .py-10 {
   padding: 10em 0;
