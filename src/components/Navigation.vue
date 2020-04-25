@@ -20,7 +20,11 @@
         >
           <img src="/img/symbol.png" class="symbol symbol-sidebar" /> Melissia Games
         </router-link>
-        <button class="btn btn-default btn-sm" @click="changeTheme()">
+        <button
+          class="btn btn-light btn-sm rounded-circle py-0"
+          style="padding: 0 12px;"
+          @click="changeTheme()"
+        >
           <font-awesome-icon icon="sun" size="1x" v-show="theme === 'dark'" />
           <font-awesome-icon icon="moon" size="1x" v-show="theme === 'light'" />
         </button>
