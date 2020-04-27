@@ -3,16 +3,11 @@
     <slider />
     <div class="parallax noselect">
       <div class="d-flex justify-content-center align-items-center">
-        <div
-          class="col-12 text-center"
-          style="padding-top: 5em;padding-bottom: 5em;"
-        >
+        <div class="col-12 text-center" style="padding-top: 5em;padding-bottom: 5em;">
           <h1
             class="navbar-brand d-block"
             style="font-size: 30px !important; color: #fff !important;"
-          >
-            Melissia Games
-          </h1>
+          >Melissia Games</h1>
           <h5 class="text-uppercase font-weight-bold text-light">remastered</h5>
           <img
             src="/img/symbol.png"
@@ -60,9 +55,7 @@
           </div>
           <div class="col-12 col-lg-7">
             <h1 class="text-light">Rankings</h1>
-            <p class="mb-0 small text-light text-right">
-              Last update 10 minutes ago.
-            </p>
+            <p class="mb-0 small text-light text-right">Last update 10 minutes ago.</p>
             <ul class="nav nav-tabs">
               <li
                 class="nav-item"
@@ -70,12 +63,7 @@
                 :key="index"
                 v-bind:class="index === ranking_active ? 'active' : ''"
               >
-                <button
-                  class="btn bg-white text-dark"
-                  @click="changeRanking(index)"
-                >
-                  {{ rank.name }}
-                </button>
+                <button class="btn bg-white text-dark" @click="changeRanking(index)">{{ rank.name }}</button>
               </li>
             </ul>
             <div class="w-100 bg-light text-dark px-3 px-lg-4 py-4">
@@ -94,19 +82,11 @@
                   :key="index"
                 >
                   <h6 class="mr-3 mr-lg-5">#{{ index + 1 }}</h6>
-                  <h6 class="text-center mr-3 mr-lg-5">
-                    {{ player.name }}({{ player.family }})
-                  </h6>
+                  <h6 class="text-center mr-3 mr-lg-5">{{ player.name }}({{ player.family }})</h6>
                   <h6 class="text-center mr-2 mr-lg-5">{{ player.guild }}</h6>
-                  <h3 class="w-100 text-right" v-if="index === 0">
-                    {{ player.level }}
-                  </h3>
-                  <h4 class="w-100 text-right" v-else-if="index === 1">
-                    {{ player.level }}
-                  </h4>
-                  <h5 class="w-100 text-right" v-else-if="index === 2">
-                    {{ player.level }}
-                  </h5>
+                  <h3 class="w-100 text-right" v-if="index === 0">{{ player.level }}</h3>
+                  <h4 class="w-100 text-right" v-else-if="index === 1">{{ player.level }}</h4>
+                  <h5 class="w-100 text-right" v-else-if="index === 2">{{ player.level }}</h5>
                   <h6 class="w-100 text-right" v-else>{{ player.level }}</h6>
                 </div>
               </div>
@@ -135,7 +115,7 @@ export default {
         { name: "Training", icon: "" },
         { name: "Trade", icon: "" },
         { name: "Farming", icon: "" },
-        { name: "Sailing", icon: "" },
+        { name: "Sailing", icon: "" }
       ],
       ranking_active: 0,
       gathering_players: [
@@ -143,18 +123,18 @@ export default {
         { name: "Somar1", family: "Family", guild: "SOLO", level: "Guru 1" },
         { name: "Somar2", family: "Family", guild: "SOLO", level: "Master 15" },
         { name: "Somar3", family: "Family", guild: "SOLO", level: "Master 10" },
-        { name: "Somar4", family: "Family", guild: "SOLO", level: "Master 8" },
-      ],
+        { name: "Somar4", family: "Family", guild: "SOLO", level: "Master 8" }
+      ]
     };
   },
   methods: {
     changeRanking(value) {
       this.ranking_active = value;
-    },
+    }
   },
   components: {
-    Slider,
-  },
+    Slider
+  }
 };
 </script>
 <style scoped>
@@ -169,7 +149,6 @@ export default {
 }
 .nav-tabs {
   border-bottom: 0;
-  background: red;
   justify-content: center;
 }
 @media only screen and (max-width: 600px) {
