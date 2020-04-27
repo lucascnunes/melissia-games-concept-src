@@ -79,22 +79,22 @@
         </li>
 
         <li class="pt-3 text-center" v-if="!isLogged">
-          <a href="/signup" class="btn btn-block btn-light px-4 pb-2">
+          <router-link to="/signup" class="btn btn-block btn-light px-4 pb-2">
             <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" size="xs" />
             {{ $t("Create your account") }}
-          </a>
+          </router-link>
         </li>
         <li class="pb-3 text-center" v-if="!isLogged">
-          <a href="/signin" class="btn btn-block btn-light px-4 pb-2">
+          <router-link to="/signin" class="btn btn-block btn-light px-4 pb-2">
             <font-awesome-icon :icon="['fa', 'user']" class="mr-2" size="xs" />
             {{ $t("Enter your account") }}
-          </a>
+          </router-link>
         </li>
         <li class="pb-3 text-center" v-if="isLogged">
-          <a href="/account" class="btn btn-block btn-light px-4 pb-2">
+          <router-link to="/account" class="btn btn-block btn-light px-4 pb-2">
             <font-awesome-icon :icon="['fa', 'clipboard']" class="mr-2" size="xs" />
             {{ $t("Check your account") }}
-          </a>
+          </router-link>
         </li>
         <li class="d-lg-none py-5">
           {{ $t("Lang") }}
