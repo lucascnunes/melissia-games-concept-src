@@ -8,8 +8,8 @@
           style="padding-top: 5em;padding-bottom: 5em;"
         >
           <h1
-            class="navbar-brand d-block text-light"
-            style="font-size: 30px !important;"
+            class="navbar-brand d-block"
+            style="font-size: 30px !important; color: #fff !important;"
           >
             Melissia Games
           </h1>
