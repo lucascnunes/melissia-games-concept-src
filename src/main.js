@@ -7,9 +7,13 @@ import VueCarousel from "vue-carousel";
 
 import "bootstrap/dist/css/bootstrap.css";
 
-import { VueReCaptcha } from "vue-recaptcha-v3";
+// import {
+//   VueReCaptcha
+// } from "vue-recaptcha-v3";
 
-import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  library
+} from "@fortawesome/fontawesome-svg-core";
 import {
   faUserPlus,
   faUser,
@@ -21,9 +25,14 @@ import {
   faKey,
   faAt,
 } from "@fortawesome/free-solid-svg-icons";
-import { faDiscord, faTelegram } from "@fortawesome/free-brands-svg-icons";
+import {
+  faDiscord,
+  faTelegram
+} from "@fortawesome/free-brands-svg-icons";
 
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import {
+  FontAwesomeIcon
+} from "@fortawesome/vue-fontawesome";
 
 import i18n from "./i18n";
 
@@ -44,12 +53,12 @@ Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.use(VueCarousel);
 
-Vue.use(VueReCaptcha, {
-  siteKey: "<site key>",
-  loaderOptions: {
-    useRecaptchaNet: true,
-  },
-});
+// Vue.use(VueReCaptcha, {
+//   siteKey: "<site key>",
+//   loaderOptions: {
+//     useRecaptchaNet: true,
+//   },
+// });
 
 Vue.config.productionTip = false;
 
