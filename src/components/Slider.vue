@@ -18,21 +18,34 @@
         <div class="slider-image slider-image-1"></div>
         <div class="col-12 col-lg-8">
           <h1 class="pt-5">{{ $t("Welcome to Melissia Games") }},</h1>
-          <h3>{{ $t("We work so you can play") }}!</h3>
+          <h3 class="mb-4">{{ $t("We work so you can play") }}!</h3>
+          <router-link to="/signin" class="btn btn-light px-5 py-2 mb-2 mr-3">
+            <font-awesome-icon :icon="['fa', 'user']" class="mr-2" />
+            Enter your account
+          </router-link>
+          <router-link to="/signup" class="btn btn-light px-5 py-2 mb-2">
+            <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" />
+            Create your account
+          </router-link>
         </div>
       </slide>
       <slide class="d-lg-flex justify-content-lg-center align-items-lg-center">
         <div class="slider-image slider-image-2"></div>
         <div class="col-12 col-lg-8">
           <h1>{{ $t("Come in and have fun") }}!</h1>
-          <h3>{{ $t("Check the links bellow for more information") }}.</h3>
+          <h3 class="mb-4">
+            {{ $t("Check the links bellow for more information") }}.
+          </h3>
           <a
             href="https://t.me/melissia_games"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-light px-5 py-2 mr-3 mb-2"
           >
-            <font-awesome-icon :icon="['fab', 'telegram']" class="mr-2" />Telegram
+            <font-awesome-icon
+              :icon="['fab', 'telegram']"
+              class="mr-2"
+            />Telegram
           </a>
           <a
             href="https://discord.gg/MT5Uu2Y"
@@ -57,7 +70,7 @@ export default {
     document
       .getElementsByClassName("VueCarousel-slide")[0]
       .classList.add("VueCarousel-slide-active");
-  }
+  },
 };
 </script>
 
@@ -88,16 +101,23 @@ export default {
   -webkit-animation: slideShow 24s linear infinite 0s;
 }
 .slider-image-1 {
-  background: url("/img/back1.jpg") no-repeat !important;
+  background: url("/img/back3.jpg") no-repeat !important;
   background-size: cover !important;
-  background-position: top left;
+  background-position: top center;
 }
 .slider-image-2 {
   background: url("/img/back2.jpg") no-repeat !important;
   background-size: cover !important;
-  background-position: top left;
+  background-position: top center;
 }
-
+@media only screen and (max-width: 600px) {
+  .slider-image-1 {
+    background-position: 50% !important;
+  }
+  .slider-image-2 {
+    background-position: 67% !important;
+  }
+}
 .VueCarousel-inner {
   transition: none !important;
 }

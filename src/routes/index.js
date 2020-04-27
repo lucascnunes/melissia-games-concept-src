@@ -42,4 +42,26 @@ router.afterEach((to, from) => {
   }, 1000);
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.authenticated)) {
+    if (store.state.auth.isLogged === false) {
+      next({
+        name: 'Login'
+      })
+    } else {
+      next()
+    }
+  } else if (to.matched.some(record => record.meta.guest)) {
+    if (store.state.auth.isLogged === false) {
+      next()
+    } else {
+      next({
+        name: 'Account'
+      })
+    }
+  } else {
+    next()
+  }
+})
+
 export default router;

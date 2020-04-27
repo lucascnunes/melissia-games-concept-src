@@ -22,8 +22,8 @@
       @click="showNav()"
       aria-label="Toggle navigation"
     >
-      <font-awesome-icon icon="bars" size="2x" v-if="!isNavOpen" />
-      <font-awesome-icon icon="times" size="2x" v-else />
+      <font-awesome-icon icon="bars" size="1x" v-if="!isNavOpen" />
+      <font-awesome-icon icon="times" size="1x" v-else />
     </button>
 
     <Sidebar>
@@ -61,27 +61,10 @@
           </router-link>
         </li>
         <li>
-          <a>
+          <a href="/forum">
             {{
             $t("Forum")
             }}
-          </a>
-        </li>
-        <li>
-          {{ $t("Lang") }}
-          <div class="d-flex flex-wrap justify-content-between pt-3">
-            <button
-              class="btn btn-sm btn-light border m-2"
-              v-for="(lang, i) in langs"
-              :key="i"
-              @click="changeLang(lang)"
-            >{{ lang }}</button>
-          </div>
-        </li>
-        <li class="py-3 text-center">
-          <a href="/account" class="btn btn-light px-4">
-            <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" size="xs" />
-            {{ $t("Create your account") }}
           </a>
         </li>
         <li>
@@ -94,12 +77,43 @@
             <font-awesome-icon :icon="['fab', 'telegram']" class="mr-2" />Telegram
           </a>
         </li>
+
+        <li class="pt-3 text-center" v-if="!isLogged">
+          <a href="/signup" class="btn btn-block btn-light px-4 pb-2">
+            <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" size="xs" />
+            {{ $t("Create your account") }}
+          </a>
+        </li>
+        <li class="pb-3 text-center" v-if="!isLogged">
+          <a href="/signin" class="btn btn-block btn-light px-4 pb-2">
+            <font-awesome-icon :icon="['fa', 'user']" class="mr-2" size="xs" />
+            {{ $t("Enter your account") }}
+          </a>
+        </li>
+        <li class="pb-3 text-center" v-if="isLogged">
+          <a href="/account" class="btn btn-block btn-light px-4 pb-2">
+            <font-awesome-icon :icon="['fa', 'clipboard']" class="mr-2" size="xs" />
+            {{ $t("Check your account") }}
+          </a>
+        </li>
+        <li class="d-lg-none py-5">
+          {{ $t("Lang") }}
+          <div class="d-flex flex-wrap justify-content-between pt-3">
+            <button
+              class="btn btn-sm btn-light border m-2"
+              v-for="(lang, i) in langs"
+              :key="i"
+              @click="changeLang(lang)"
+            >{{ lang }}</button>
+          </div>
+        </li>
+        <li class="small py-2 px-5" style="position:fixed; bottom: 10px;">© 2020 Melissia Games.</li>
       </ul>
     </Sidebar>
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li class="nav-item" v-if="!isNavOpen">
           <button class="btn btn-light" @click="changeTheme()">
             <font-awesome-icon icon="sun" size="1x" v-show="theme === 'dark'" />
             <font-awesome-icon icon="moon" size="1x" v-show="theme === 'light'" />
@@ -153,16 +167,20 @@
               v-for="(lang, i) in langs"
               :key="i"
               class="dropdown-item lang"
-              href="#"
               @click="changeLang(lang)"
             >{{ lang }}</a>
           </div>
         </li>
         <li class="nav-item">
-          <a href="/account" class="btn btn-light px-4">
-            <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" size="xs" />
-            {{ $t("Create your account") }}
-          </a>
+          <button
+            class="btn btn-light d-none d-lg-inline"
+            type="button"
+            @click="showNav()"
+            aria-label="Toggle navigation"
+          >
+            <font-awesome-icon icon="bars" size="1x" v-if="!isNavOpen" />
+            <font-awesome-icon icon="times" size="1x" v-else />
+          </button>
         </li>
         <li v-if="isLogged" class="nav-item nav-underline dropdown">
           <a
@@ -239,6 +257,7 @@ export default {
 
 <style>
 .navbar {
+  padding: 30px 30px !important;
   background-color: transparent !important;
   position: absolute !important;
   width: 100%;

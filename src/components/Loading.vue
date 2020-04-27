@@ -20,13 +20,13 @@ export default {
   width: 90px;
   height: 90px;
   animation: pulse 2s infinite;
-  filter: invert(1);
+  filter: var(--symbol-invert);
 }
 .absolute {
   position: absolute;
 }
 .blur {
-  filter: blur(5px) invert(1);
+  filter: blur(5px) var(--symbol-invert);
 }
 .loading {
   position: fixed;

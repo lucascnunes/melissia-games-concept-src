@@ -1,15 +1,16 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from "vue";
+import Vuex from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
-import auth from './modules/auth';
+import auth from "./modules/auth";
 
 const store = new Vuex.Store({
   state: {
     loading: true,
     isNavOpen: false,
-    theme: 'light',
+    theme: "light",
   },
   mutations: {
     setLoadingStatus(state, value) {
@@ -23,11 +24,12 @@ const store = new Vuex.Store({
     },
     setTheme(state, value) {
       state.theme = value;
-    }
+    },
   },
   modules: {
-    auth
-  }
+    auth,
+  },
+  plugins: [createPersistedState()],
 });
 
 export default store;

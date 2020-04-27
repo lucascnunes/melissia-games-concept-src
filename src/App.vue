@@ -29,6 +29,9 @@ export default {
     Loading,
     Navigation
   },
+  mounted() {
+    document.documentElement.setAttribute("data-theme", this.theme);
+  },
   computed: {
     ...mapState(["theme"])
   }
@@ -92,6 +95,11 @@ footer {
 .py-10 {
   padding: 10em 0;
 }
+.navbar-brand {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -100,5 +108,8 @@ footer {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Opera and Firefox */
+}
+.bg-232323 {
+  background-color: #232323 !important;
 }
 </style>
