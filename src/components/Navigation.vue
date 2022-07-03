@@ -78,21 +78,13 @@
           </a>
         </li> -->
 
-        <li class="pt-3 text-center" v-if="!isLogged">
-          <!-- <router-link to="/signup" class="btn btn-block btn-light px-4 pb-2">
-            <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" size="xs" />
-            {{ $t("Create your account") }}
-          </router-link> -->
+        <li class="pt-3 text-center">
           <a href="https://melissia.games/office/register" class="btn btn-block btn-light px-4 pb-2">
             <font-awesome-icon :icon="['fa', 'clipboard']" class="mr-2" size="xs" />
             {{ $t("Create your account") }}
           </a>
         </li>
-        <li class="pb-3 text-center" v-if="!isLogged">
-          <!-- <router-link to="/signin" class="btn btn-block btn-light px-4 pb-2">
-            <font-awesome-icon :icon="['fa', 'user']" class="mr-2" size="xs" />
-            {{ $t("Enter your account") }}
-          </router-link> -->
+        <li class="pb-3 text-center">
           <a href="https://melissia.games/office/login" class="btn btn-block btn-light px-4 pb-2">
             <font-awesome-icon :icon="['fa', 'clipboard']" class="mr-2" size="xs" />
             {{ $t("Enter your account") }}
@@ -284,7 +276,8 @@ export default {
   transition: all 0.2s ease-in-out;
   position: relative;
   padding: 10px;
-}
+  background: transparent !important;
+} 
 .nav-item .nav-link {
   color: var(--font-color) !important;
 }

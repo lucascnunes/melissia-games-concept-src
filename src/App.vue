@@ -49,6 +49,7 @@ export default {
   --footer-font-color: #232323;
   --sidebar-bg-color: #fff;
   --sidebar-font-color: #232323;
+  --nav-item-background-color: transparent;
   --btn-background-color: #fff;
   --btn-font-color: #fff;
   --btn-bg-color: #232323;
@@ -64,6 +65,7 @@ export default {
   --footer-font-color: #fff;
   --sidebar-bg-color: #232323;
   --sidebar-font-color: #fff;
+  --nav-item-background-color: transparent;
   --btn-background-color: #232323;
   --btn-font-color: #232323;
   --btn-bg-color: #fff;
@@ -111,5 +113,24 @@ footer {
 }
 .bg-232323 {
   background-color: #232323 !important;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  70% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+li.nav-item:not(.active),
+li.nav-item.active {
+  background: transparent !important;
 }
 </style>

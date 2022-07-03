@@ -46,9 +46,12 @@
 }
 @media only screen and (max-width: 600px) {
   .nav-tabs {
-    justify-content: start;
+    display: flex;
+    gap: 0;
+    justify-content: space-between;
     flex-wrap: nowrap;
     overflow-x: scroll;
+    white-space: nowrap;
   }
 }
 .nav-item:not(.active) {

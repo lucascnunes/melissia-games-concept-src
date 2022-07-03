@@ -39,18 +39,4 @@ export default {
   overflow: hidden;
   transition: all 3s;
 }
-
-@keyframes pulse {
-  0% {
-    transform: scale(0.95);
-  }
-
-  70% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(0.95);
-  }
-}
 </style>

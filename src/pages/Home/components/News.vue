@@ -1,5 +1,10 @@
 <template>
-    <div class="d-flex flex-wrap flex-column align-items-center">
+<div>
+    <div class="wrapper loading noselect" v-if="loading">
+        <img src="/img/symbol.png" class="symbol absolute blur" />
+        <img src="/img/symbol.png" class="symbol absolute" />
+    </div>
+    <div class="d-flex flex-wrap flex-column align-items-center" v-if="!loading">
         <a href="#" class="patch-notes text-light w-100 mb-1 p-4">
         <div class="image"></div>
         <div>
@@ -29,9 +34,30 @@
         </div>
         </a>
     </div>
+</div>
 </template>
 
-<style>
+<style scoped>
+.symbol {
+  width: 90px;
+  height: 90px;
+  animation: pulse 2s infinite;
+  filter: var(--symbol-invert);
+}
+.blur {
+  filter: blur(5px) var(--symbol-invert);
+}
+.wrapper {
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.absolute {
+    position: absolute;
+}
+
 .patch-notes {
   position: relative;
   overflow: hidden;
@@ -58,4 +84,18 @@
 </style>
 
 <script>
+
+export default {
+    name: "News",
+    data() {
+        return {
+            loading: true,
+        }
+    },
+
+    methods: {
+
+    },
+
+}
 </script>
