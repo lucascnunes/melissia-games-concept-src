@@ -6,12 +6,12 @@
     <footer>
       © 2020
       <strong>MELISSIA GAMES</strong>
-      <br />
+      <!-- <br />
       {{
       $t("THIS SITE IS IN NO WAY ASSOCIATED WITH OR ENDORSED BY {name}", {
       name: "PEARL ABYSS",
       })
-      }}
+      }} -->
       ©
     </footer>
   </div>

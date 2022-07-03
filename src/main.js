@@ -24,6 +24,8 @@ import {
   faClipboard,
   faKey,
   faAt,
+  faComment,
+  faInfo,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faDiscord,
@@ -47,6 +49,8 @@ library.add(
   faMoon,
   faClipboard,
   faKey,
+  faComment,
+  faInfo,
   faAt
 );
 Vue.component("font-awesome-icon", FontAwesomeIcon);

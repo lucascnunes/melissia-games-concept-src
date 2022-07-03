@@ -61,34 +61,42 @@
           </router-link>
         </li>
         <li>
-          <a href="/forum">
+          <a href="https://forum.melissia.games/index.php">
             {{
             $t("Forum")
             }}
           </a>
         </li>
         <li>
-          <a href="https://discord.gg/MT5Uu2Y" target="_blank" rel="noopener noreferrer">
+          <a href="https://discord.gg/yEbNNjWYCQ" target="_blank" rel="noopener noreferrer">
             <font-awesome-icon :icon="['fab', 'discord']" class="mr-2" />Discord
           </a>
         </li>
-        <li>
+        <!-- <li>
           <a href="https://t.me/melissia_games" target="_blank" rel="noopener noreferrer">
             <font-awesome-icon :icon="['fab', 'telegram']" class="mr-2" />Telegram
           </a>
-        </li>
+        </li> -->
 
         <li class="pt-3 text-center" v-if="!isLogged">
-          <router-link to="/signup" class="btn btn-block btn-light px-4 pb-2">
+          <!-- <router-link to="/signup" class="btn btn-block btn-light px-4 pb-2">
             <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" size="xs" />
             {{ $t("Create your account") }}
-          </router-link>
+          </router-link> -->
+          <a href="https://melissia.games/office/register" class="btn btn-block btn-light px-4 pb-2">
+            <font-awesome-icon :icon="['fa', 'clipboard']" class="mr-2" size="xs" />
+            {{ $t("Create your account") }}
+          </a>
         </li>
         <li class="pb-3 text-center" v-if="!isLogged">
-          <router-link to="/signin" class="btn btn-block btn-light px-4 pb-2">
+          <!-- <router-link to="/signin" class="btn btn-block btn-light px-4 pb-2">
             <font-awesome-icon :icon="['fa', 'user']" class="mr-2" size="xs" />
             {{ $t("Enter your account") }}
-          </router-link>
+          </router-link> -->
+          <a href="https://melissia.games/office/login" class="btn btn-block btn-light px-4 pb-2">
+            <font-awesome-icon :icon="['fa', 'clipboard']" class="mr-2" size="xs" />
+            {{ $t("Enter your account") }}
+          </a>
         </li>
         <li class="pb-3 text-center" v-if="isLogged">
           <router-link to="/account" class="btn btn-block btn-light px-4 pb-2">
@@ -144,7 +152,7 @@
         <li class="nav-item nav-underline">
           <a
             class="nav-link"
-            href="/forum"
+            href="https://forum.melissia.games/index.php"
             v-bind:style="$route.name === 'Home' ? 'color: #fff !important' : ''"
           >Forum</a>
         </li>
