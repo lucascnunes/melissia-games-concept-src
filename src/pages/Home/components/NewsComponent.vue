@@ -5,7 +5,7 @@
         <img src="/img/symbol.png" class="symbol absolute" />
     </div>
     <div class="d-flex flex-wrap flex-column align-items-center" v-if="!loading">
-        <a v-for="patch in patchNotes" :key="patch.thread_id" :href="patch.view_url" class="patch-notes text-light w-100 mb-1 p-4">
+        <a v-for="patch in patchNotes.slice(0,4)" :key="patch.thread_id" :href="patch.view_url" class="patch-notes text-light w-100 mb-1 p-4">
             <div class="image" style="
             background-image: url('/img/patch.jpg')"></div>
             <div>
