@@ -4,6 +4,9 @@
 
 https://mystifying-brahmagupta-8abe3f.netlify.app/
 
+## Build repo
+https://github.com/lucascnunes/melissia-games-concept
+
 ## Content dependencies
 
 - Vue-router
