@@ -16,9 +16,10 @@
     "axios": "^0.27.2",
     "bootstrap": "5.2.0-beta1",
     "core-js": "^3.8.3",
-    "mande": "^2.0.2",
     "pinia": "^2.0.14",
     "vue": "^3.2.13",
+    "vue-axios": "^3.4.1",
+    "vue-axios-cors": "^1.0.1",
     "vue-i18n": "9",
     "vue-router": "4"
   },
