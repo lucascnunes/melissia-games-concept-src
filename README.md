@@ -1,5 +1,7 @@
 # Melissia Games Concept in vuejs
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e1fc9e64-09c5-4246-ae9f-0b6285118b30/deploy-status)](https://app.netlify.com/sites/mystifying-brahmagupta-8abe3f/deploys)
+
 https://mystifying-brahmagupta-8abe3f.netlify.app/
 
 ## Content dependencies
