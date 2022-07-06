@@ -13,12 +13,15 @@ const token = '58Z_sVB8a4nh5tCEvdMesOKnTlt4JSSs'
 axios.defaults.withCredentials = true
 const api = axios.create({
     baseURL: 'https://forum.melissia.games/index.php/api',
+    withCredentials: true,
     timeout: 1000,
+    origin: "http://localhost:8081",
     headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
         "Accept": 'application/json',
         'XF-API-KEY': token,
+        
     }
 })
 
