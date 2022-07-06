@@ -73,15 +73,15 @@
           </a>
         </li>
         <li class="pt-3 text-center">
-          <a href="https://melissia.games/office/register" class="btn btn-block btn-light px-4 pb-2">
-            <font-awesome-icon :icon="['fa', 'clipboard']" class="me-2" size="xs" />
-            {{ $t("Create your account") }}
+          <a href="https://melissia.games/office/login" class="btn btn-block btn-light px-4 pb-2">
+            <font-awesome-icon :icon="['fa', 'user']" class="me-2" size="xs" />
+            {{ $t("Enter your account") }}
           </a>
         </li>
         <li class="pb-3 text-center">
-          <a href="https://melissia.games/office/login" class="btn btn-block btn-light px-4 pb-2">
-            <font-awesome-icon :icon="['fa', 'clipboard']" class="me-2" size="xs" />
-            {{ $t("Enter your account") }}
+          <a href="https://melissia.games/office/register" class="btn btn-block btn-light px-4 pb-2">
+            <font-awesome-icon :icon="['fa', 'user-plus']" class="me-2" size="xs" />
+            {{ $t("Create your account") }}
           </a>
         </li>
         <li class="d-lg-none py-5">
