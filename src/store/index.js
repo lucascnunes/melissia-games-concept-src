@@ -1,24 +1,15 @@
 import { defineStore } from 'pinia'
-import axios from 'axios'
+import { mande } from 'mande'
 
 const token = '58Z_sVB8a4nh5tCEvdMesOKnTlt4JSSs'
 
-const api = axios.create({
-    baseURL: 'https://forum.melissia.games/index.php/api',
-    withCredentials: true,
-    timeout: 1000,
+const api = mande('https://forum.melissia.games/index.php/api', {
     headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'https://forum.melissia.games/index.php/api',
-        'Access-Control-Allow-Methods': 'GET,OPTIONS',
-        'Access-Control-Allow-Headers': '*',
-        'Access-Control-Allow-Credentials': true,
-        'Content-type': 'application/json; charset=utf-8',
-        'XF-API-KEY': token,
+        'xf-api-key': token,
+        'Content-type': 'charset=utf-8',
+        'Accept': 'application/json'
     }
 })
-
-axios.defaults.withCredentials = true
 
 export const useStore = defineStore('main', {
     state: () => ({
