@@ -1,7 +1,7 @@
 <template>
     <div>
         <p class="mb-0 small text-light text-right">Last update 10 minutes ago.</p>
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs mt-3">
             <li
             class="nav-item"
             v-for="(rank, index) in rankings"
@@ -11,12 +11,12 @@
               <button class="btn bg-white text-dark" @click="changeRanking(index)">{{ rank.name }}</button>
             </li>
         </ul>
-        <div class="w-100 bg-light text-dark px-3 px-lg-4 py-4">
-            <div class="d-flex justify-content-between align-items-center">
-              <h6 class="me-3 me-lg-5">Position</h6>
-              <h6 class="text-center me-3 me-lg-5">Player</h6>
-              <h6 class="text-center me-2 me-lg-5">Guild</h6>
-              <h6 class="w-100 text-right">Rank</h6>
+        <div class="w-100 mt-3 bg-light text-dark px-3 px-lg-4 py-4">
+            <div class="d-flex flex-row justify-content-between align-items-center">
+              <div class="">Position</div>
+              <div class="text-center">Player(Family)</div>
+              <div class="text-center">Guild</div>
+              <div class="text-right">Rank</div>
             </div>
             <hr />
             <div v-show="ranking_active === 0">
@@ -26,13 +26,13 @@
                   v-for="(player, index) in gathering_players"
                   :key="index"
               >
-                  <h6 class="me-3 me-lg-5">#{{ index + 1 }}</h6>
-                  <h6 class="text-center me-3 me-lg-5">{{ player.name }}({{ player.family }})</h6>
-                  <h6 class="text-center me-2 me-lg-5">{{ player.guild }}</h6>
-                  <h3 class="w-100 text-right" v-if="index === 0">{{ player.level }}</h3>
-                  <h4 class="w-100 text-right" v-else-if="index === 1">{{ player.level }}</h4>
-                  <h5 class="w-100 text-right" v-else-if="index === 2">{{ player.level }}</h5>
-                  <h6 class="w-100 text-right" v-else>{{ player.level }}</h6>
+                  <div class="me-3 me-lg-5">#{{ index + 1 }}</div>
+                  <div class="text-center me-3 me-lg-5">{{ player.name }}({{ player.family }})</div>
+                  <div class="text-center me-2 me-lg-5">{{ player.guild }}</div>
+                  <h3 class="text-right" v-if="index === 0">{{ player.level }}</h3>
+                  <h4 class="text-right" v-else-if="index === 1">{{ player.level }}</h4>
+                  <h5 class="text-right" v-else-if="index === 2">{{ player.level }}</h5>
+                  <h6 class="text-right" v-else>{{ player.level }}</h6>
               </div>
             </div>
         </div>
