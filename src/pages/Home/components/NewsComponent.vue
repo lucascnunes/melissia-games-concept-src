@@ -1,13 +1,13 @@
 <template>
 <div>
     <div class="wrapper loading noselect rounded mb-5" v-if="loading">
-        <img src="/img/symbol.png" class="symbol absolute blur" />
-        <img src="/img/symbol.png" class="symbol absolute" />
+        <img src="img/symbol.png" class="symbol absolute blur" />
+        <img src="img/symbol.png" class="symbol absolute" />
     </div>
     <div class="d-flex flex-wrap flex-column align-items-center" v-if="!loading">
         <a v-for="patch in patchNotes.slice(0,4)" :key="patch.thread_id" :href="patch.view_url" class="patch-notes text-light w-100 mb-1 p-4">
             <div class="image" style="
-            background-image: url('/img/patch.jpg')"></div>
+            background-image: url('img/patch.jpeg')"></div>
             <div>
                 <h3>{{ patch.title }}</h3>
             </div>
