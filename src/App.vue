@@ -3,16 +3,23 @@
     <loading-component />
     <navigation-component />
     <router-view />
-    <footer>
-      © 2020
-      <strong>MELISSIA GAMES</strong>
-      <!-- <br />
-      {{
-      $t("THIS SITE IS IN NO WAY ASSOCIATED WITH OR ENDORSED BY {name}", {
-      name: "PEARL ABYSS",
-      })
-      }} -->
-      ©
+    <footer class="d-lg-flex justify-content-between align-items-center">
+      <div>
+        © 2020 - {{ new Date().getFullYear() }}
+        <span class="ms-4"><strong>MELISSIA GAMES</strong></span>
+        <br />
+        {{
+        $t("THIS SITE IS IN NO WAY ASSOCIATED WITH OR ENDORSED BY {name}", {
+        name: "PEARL ABYSS",
+        })
+        }}
+      </div>
+      <div class="mt-4 mt-lg-0 d-flex justify-content-between align-items-center">
+        <a href="https://gtop100.com/topsites/Black-Desert-Online/sitedetails/Melissia-Games-100207?vote=1" target="_blank" rel="noopener noreferrer"><img src="/img/votebutton.jpeg" alt="Vote on GTOP 100" class="rounded me-3" /></a>
+        <a href="https://freekassa.ru/" target="_blank" rel="noopener noreferrer">
+          <img src="/img/freekassa.png" alt="We accept Freekassa Payment System" class="rounded">
+        </a>
+      </div>
     </footer>
   </div>
 </template>

@@ -9,7 +9,7 @@ const api = axios.create({
     timeout: 1000,
     headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': 'https://forum.melissia.games/index.php/api',
         'Access-Control-Allow-Methods': 'GET,OPTIONS',
         'Access-Control-Allow-Headers': '*',
         'Access-Control-Allow-Credentials':true,

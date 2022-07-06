@@ -1,7 +1,7 @@
 <template>
     <div>
         <p class="mb-0 small text-light text-right">Last update 10 minutes ago.</p>
-        <ul class="nav nav-tabs mt-3">
+        <ul class="nav nav-tabs mt-3 pb-3">
             <li
             class="nav-item"
             v-for="(rank, index) in rankings"
