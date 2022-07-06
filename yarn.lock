@@ -5958,11 +5958,6 @@ vue-axios-cors@^1.0.1:
     qs "^6.9.1"
     vue "^2.6.10"
 
-vue-axios@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/vue-axios/-/vue-axios-3.4.1.tgz#e092ec4060b42e941ea5059df9b8f09058c3eea9"
-  integrity sha512-8YZYUOQrBEJktxoQtrM4rr2LfVcDaWfJqv8MqtLlgLlkuBvCYKFSZSo6AXQ4YcCzdgccDqstmuaEh68lcH9xWA==
-
 vue-demi@*:
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.13.2.tgz#f6081c2feb5b698549729a81683ce029b8da289e"

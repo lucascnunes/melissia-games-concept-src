@@ -5,18 +5,20 @@ const token = '58Z_sVB8a4nh5tCEvdMesOKnTlt4JSSs'
 
 const api = axios.create({
     baseURL: 'https://forum.melissia.games/index.php/api',
-    crossdomain: true,
+    withCredentials: true,
     timeout: 1000,
     headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': 'https://forum.melissia.games/index.php/api',
         'Access-Control-Allow-Methods': 'GET,OPTIONS',
         'Access-Control-Allow-Headers': '*',
-        'Access-Control-Allow-Credentials':true,
+        'Access-Control-Allow-Credentials': true,
         'Content-type': 'application/json; charset=utf-8',
         'XF-API-KEY': token,
     }
 })
+
+axios.defaults.withCredentials = true
 
 export const useStore = defineStore('main', {
     state: () => ({
