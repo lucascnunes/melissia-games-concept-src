@@ -8,7 +8,7 @@
     >
       <slide>
         <div class="slider-image slider-image-1" style="
-          background-image: url('/img/back3.jpg')
+          background-image: url('img/back3.jpg')
         "></div>
         <div class="col-12 col-lg-8">
           <h1 class="pt-5">{{ $t("Welcome to Melissia Games") }},</h1>
@@ -33,7 +33,7 @@
       </slide>
       <slide>
         <div class="slider-image slider-image-2" style="
-          background-image: url('/img/back2.jpg')
+          background-image: url('img/back2.jpg')
         "></div>
         <div class="col-12 col-lg-8">
           <h1>{{ $t("Come in and have fun") }}!</h1>

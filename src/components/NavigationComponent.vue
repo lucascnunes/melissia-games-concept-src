@@ -11,7 +11,7 @@
       v-bind:class="$route.name === 'Home' ? 'force-light-text' : ''"
     >
       <img
-        src="/img/symbol.png"
+        src="img/symbol.png"
         class="symbol"
         v-bind:style="$route.name === 'Home' ? 'filter: invert(1) !important;' : ''"
       /> Melissia Games
@@ -108,22 +108,26 @@
             <font-awesome-icon icon="moon" size="1x" v-show="theme === 'light'" />
           </button>
         </li>
-        <li class="nav-item nav-underline active">
+        <li class="nav-item nav-underline"
+        :class="{
+            'active': $route.name === 'Terms'
+        }">
           <router-link
             class="nav-link"
             :to="{ name: 'Terms' }"
-            v-bind:style="$route.name === 'Home' ? 'color: #fff !important' : ''"
           >
             {{
             $t("Terms of Use")
             }}
           </router-link>
         </li>
-        <li class="nav-item nav-underline">
+        <li class="nav-item nav-underline"
+        :class="{
+            'active': $route.name === 'Privacy'
+        }">
           <router-link
             class="nav-link"
             :to="{ name: 'Privacy' }"
-            v-bind:style="$route.name === 'Home' ? 'color: #fff !important' : ''"
           >
             {{
             $t("Privacy")
@@ -134,7 +138,6 @@
           <a
             class="nav-link"
             href="https://forum.melissia.games/index.php"
-            v-bind:style="$route.name === 'Home' ? 'color: #fff !important' : ''"
           >Forum</a>
         </li>
         <li class="nav-item nav-underline dropdown" @click="langDropdown">
@@ -143,7 +146,6 @@
             type="button"
             aria-haspopup="true"
             aria-expanded="false"
-            v-bind:style="$route.name === 'Home' ? 'color: #fff !important' : ''"
           >{{ $t("Lang") }}</button>
           <div
             v-bind:class="lang_dropdown ? 'show' : ''"
@@ -188,6 +190,9 @@ export default {
 
     return { store }
   },
+  mounted() {
+    console.log(this.$route.name)
+  }, 
   data() {
     return {
       langs: ["en", "pt-br", "fr", "de", "es", "ru", "tu", "kr"],
@@ -294,7 +299,9 @@ export default {
 }
 .dropdown-menu .dropdown-item:hover {
   background: transparent;
-  color: #f3ca7d98 !important;
+  color: #e70101d6 !important;
+  font-weight: 800;
+  font-size: large;
 }
 .dropdown-toggle::after {
   margin-left: 15px !important;

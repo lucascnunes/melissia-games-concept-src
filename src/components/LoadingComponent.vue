@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper loading noselect" v-if="loading">
-    <img src="/img/symbol.png" class="symbol absolute blur" />
-    <img src="/img/symbol.png" class="symbol absolute" />
+    <img src="img/symbol.png" class="symbol absolute blur" />
+    <img src="img/symbol.png" class="symbol absolute" />
   </div>
 </template>
 

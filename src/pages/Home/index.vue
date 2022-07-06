@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="parallax noselect d-flex justify-content-center align-items-center" style="
-    background-image: url('/img/back1.jpg')
+    background-image: url('img/back1.jpg')
     ">
       <div class="col-12 col-lg-8 text-center">
           <div class="d-flex justify-content-center align-items-center">
@@ -12,7 +12,7 @@
               >Melissia Games</h1>
               <h5 class="text-uppercase font-weight-bold text-light">remastered</h5>
               <img
-                src="/img/symbol.png"
+                src="img/symbol.png"
                 class="symbol d-inline-block mt-3"
                 style="width: 120px; height: 120px; filter: invert(1) !important;"
               />
