@@ -1,58 +1,47 @@
 <template>
 <div>
-    <div class="wrapper loading noselect" v-if="loading">
+    <div class="wrapper loading noselect rounded mb-5" v-if="loading">
         <img src="/img/symbol.png" class="symbol absolute blur" />
         <img src="/img/symbol.png" class="symbol absolute" />
     </div>
     <div class="d-flex flex-wrap flex-column align-items-center" v-if="!loading">
-        <a href="#" class="patch-notes text-light w-100 mb-1 p-4">
-        <div class="image" style="
-        background-image: url('/img/patch.jpg')"></div>
-        <div>
-            <h3>Patch notes</h3>
-            <h5>26/04/2020</h5>
-        </div>
-        </a>
-        <a href="#" class="patch-notes text-light w-100 mb-1 p-4">
-        <div class="image" style="
-        background-image: url('/img/patch.jpg')"></div>
-        <div>
-            <h3>Patch notes</h3>
-            <h5>14/04/2020</h5>
-        </div>
-        </a>
-        <a href="#" class="patch-notes text-light w-100 mb-1 p-4">
-        <div class="image" style="
-        background-image: url('/img/patch.jpg')"></div>
-        <div>
-            <h3>Patch notes</h3>
-            <h5>13/04/2020</h5>
-        </div>
-        </a>
-        <a href="#" class="patch-notes text-light w-100 mb-1 p-4">
-        <div class="image" style="
-        background-image: url('/img/patch.jpg')"></div>
-        <div>
-            <h3>Patch notes</h3>
-            <h5>12/04/2020</h5>
-        </div>
+        <a v-for="patch in patchNotes" :key="patch.thread_id" :href="patch.view_url" class="patch-notes text-light w-100 mb-1 p-4">
+            <div class="image" style="
+            background-image: url('/img/patch.jpg')"></div>
+            <div>
+                <h3>{{ patch.title }}</h3>
+            </div>
         </a>
     </div>
 </div>
 </template>
 
 <script>
+import { mapState } from "pinia";
+import { useStore } from '@/store'
+
 export default {
+    setup() {
+        const store = useStore()
+        store.getPatchNotes()
+
+        return { store }
+    },
     data() {
         return {
             loading: true,
         }
     },
+    mounted() {
+        if (this.patchNotes != null && this.patchNotes.length > 0) this.loading = false;
+    },
 
     methods: {
 
     },
-
+    computed: {
+        ...mapState(useStore, ["patchNotes", "error"]),
+    }
 }
 </script>
 

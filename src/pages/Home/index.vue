@@ -1,23 +1,37 @@
 <template>
   <div class="wrapper">
-    <slider-component />
-    <div class="parallax noselect" style="
+    <div class="parallax noselect d-flex justify-content-center align-items-center" style="
     background-image: url('/img/back1.jpg')
     ">
-      <div class="d-flex justify-content-center align-items-center">
-        <div class="col-12 text-center" style="padding-top: 5em;padding-bottom: 5em;">
-          <h1
-            class="navbar-brand d-block"
-            style="font-size: 30px !important; color: #fff !important;"
-          >Melissia Games</h1>
-          <h5 class="text-uppercase font-weight-bold text-light">remastered</h5>
-          <img
-            src="/img/symbol.png"
-            class="symbol d-inline-block mt-3"
-            style="width: 120px; height: 120px; filter: invert(1) !important;"
-          />
+      <div class="col-12 col-lg-8 text-center">
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="text-center" style="padding-top: 2em;padding-bottom: 2em;">
+              <h1
+                class="navbar-brand d-block"
+                style="font-size: 30px !important; color: #fff !important;"
+              >Melissia Games</h1>
+              <h5 class="text-uppercase font-weight-bold text-light">remastered</h5>
+              <img
+                src="/img/symbol.png"
+                class="symbol d-inline-block mt-3"
+                style="width: 120px; height: 120px; filter: invert(1) !important;"
+              />
+            </div>
+          </div>
+          <h1 class="pt-5">{{ $t("Welcome to Melissia Games") }},</h1>
+          <h3 class="mb-4">{{ $t("New client online") }}!</h3>
+          
+          <div class="d-lg-flex flex-column justify-content-around align-items-center pt-5">
+            <a href="https://melissia.games/office/login" class="btn btn-light px-5 py-2 mb-2 me-3">
+              <font-awesome-icon :icon="['fa', 'user']" class="me-2" />
+              {{ $t("Enter your account") }}
+            </a>
+            <a href="https://melissia.games/office/register" class="btn btn-light px-5 py-2 mb-2">
+              <font-awesome-icon :icon="['fa', 'user-plus']" class="me-2" />
+              {{ $t("Create your account") }}
+            </a>
+          </div>
         </div>
-      </div>
     </div>
     <div class="bg-232323 py-10">
       <div class="container">
@@ -37,7 +51,6 @@
 </template>
 
 <script>
-import SliderComponent from "../../components/SliderComponent";
 import NewsComponent from "./components/NewsComponent";
 import RankingsComponent from "./components/RankingsComponent";
 
@@ -73,7 +86,6 @@ export default {
     }
   },
   components: {
-    SliderComponent,
     NewsComponent,
     RankingsComponent
   }
@@ -82,6 +94,7 @@ export default {
 <style scoped>
 .parallax {
   min-height: 300px;
+  height: 100vh;
 
   background-attachment: fixed;
   background-position: center;

@@ -4,7 +4,7 @@
     v-bind:style="$route.name === 'Home' ? 'box-shadow: 0px 0px 0px transparent !important;' : ''"
   >
     <router-link
-      class="navbar-brand mr-auto"
+      class="navbar-brand me-auto"
       :to="{
         name: 'Home',
       }"
@@ -17,7 +17,7 @@
       /> Melissia Games
     </router-link>
     <button
-      class="btn btn-light d-lg-none"
+      class="btn btn-light d-lg-none ms-auto"
       type="button"
       @click="showNav()"
       aria-label="Toggle navigation"
@@ -29,15 +29,15 @@
     <sidebar-component>
       <div class="d-flex justify-content-between">
         <router-link
-          class="navbar-brand navbar-brand-sidebar mr-auto"
+          class="navbar-brand navbar-brand-sidebar me-auto"
           :to="{
-        name: 'Home',
-      }"
+            name: 'Home',
+          }"
         >
           <img src="/img/symbol.png" class="symbol symbol-sidebar" /> Melissia Games
         </router-link>
         <button
-          class="btn btn-light btn-sm rounded-circle py-0"
+          class="btn btn-light btn-sm rounded-circle py-0 align-self-end py-2"
           style="padding: 0 12px;"
           @click="changeTheme()"
         >
@@ -69,37 +69,26 @@
         </li>
         <li>
           <a href="https://discord.gg/yEbNNjWYCQ" target="_blank" rel="noopener noreferrer">
-            <font-awesome-icon :icon="['fab', 'discord']" class="mr-2" />Discord
+            <font-awesome-icon :icon="['fab', 'discord']" class="me-2" />Discord
           </a>
         </li>
-        <!-- <li>
-          <a href="https://t.me/melissia_games" target="_blank" rel="noopener noreferrer">
-            <font-awesome-icon :icon="['fab', 'telegram']" class="mr-2" />Telegram
-          </a>
-        </li> -->
-
         <li class="pt-3 text-center">
           <a href="https://melissia.games/office/register" class="btn btn-block btn-light px-4 pb-2">
-            <font-awesome-icon :icon="['fa', 'clipboard']" class="mr-2" size="xs" />
+            <font-awesome-icon :icon="['fa', 'clipboard']" class="me-2" size="xs" />
             {{ $t("Create your account") }}
           </a>
         </li>
         <li class="pb-3 text-center">
           <a href="https://melissia.games/office/login" class="btn btn-block btn-light px-4 pb-2">
-            <font-awesome-icon :icon="['fa', 'clipboard']" class="mr-2" size="xs" />
+            <font-awesome-icon :icon="['fa', 'clipboard']" class="me-2" size="xs" />
             {{ $t("Enter your account") }}
           </a>
-        </li>
-        <li class="pb-3 text-center" v-if="isLogged">
-          <router-link to="/account" class="btn btn-block btn-light px-4 pb-2">
-            <font-awesome-icon :icon="['fa', 'clipboard']" class="mr-2" size="xs" />
-            {{ $t("Check your account") }}
-          </router-link>
         </li>
         <li class="d-lg-none py-5">
           {{ $t("Lang") }}
           <div class="d-flex flex-wrap justify-content-between pt-3">
             <button
+              type="button"
               class="btn btn-sm btn-light border m-2"
               v-for="(lang, i) in langs"
               :key="i"
@@ -112,7 +101,7 @@
     </sidebar-component>
 
     <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item" v-if="!isNavOpen">
           <button class="btn btn-light" @click="changeTheme()">
             <font-awesome-icon icon="sun" size="1x" v-show="theme === 'dark'" />
@@ -149,15 +138,13 @@
           >Forum</a>
         </li>
         <li class="nav-item nav-underline dropdown" @click="langDropdown">
-          <a
+          <button
             class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-toggle="dropdown"
+            type="button"
             aria-haspopup="true"
             aria-expanded="false"
             v-bind:style="$route.name === 'Home' ? 'color: #fff !important' : ''"
-          >{{ $t("Lang") }}</a>
+          >{{ $t("Lang") }}</button>
           <div
             v-bind:class="lang_dropdown ? 'show' : ''"
             class="dropdown-menu"
@@ -168,7 +155,10 @@
               :key="i"
               class="dropdown-item lang"
               @click="changeLang(lang)"
-            >{{ lang }}</a>
+              style="cursor: pointer"
+            >
+            {{ lang }}
+            </a>
           </div>
         </li>
         <li class="nav-item">
@@ -181,26 +171,6 @@
             <font-awesome-icon icon="bars" size="1x" v-if="!isNavOpen" />
             <font-awesome-icon icon="times" size="1x" v-else />
           </button>
-        </li>
-        <li v-if="isLogged" class="nav-item nav-underline dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            @click="userDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >Username</a>
-          <div
-            v-bind:class="user_dropdown ? 'show' : ''"
-            class="dropdown-menu dropdown-menu-right"
-            aria-labelledby="userDropdown"
-          >
-            <a class="dropdown-item" href="#">Account</a>
-            <a class="dropdown-item" href="#">Configuration</a>
-            <a class="dropdown-item" href="#">Sign Out</a>
-          </div>
         </li>
       </ul>
     </div>
@@ -227,27 +197,41 @@ export default {
   },
   methods: {
     langDropdown() {
-      this.lang_dropdown = !this.lang_dropdown;
-      this.user_dropdown = false;
+      this.lang_dropdown = !this.lang_dropdown
+      this.user_dropdown = false
     },
     userDropdown() {
-      this.user_dropdown = !this.user_dropdown;
-      this.lang_dropdown = false;
+      this.user_dropdown = !this.user_dropdown
+      this.lang_dropdown = false
     },
     changeLang(val) {
-      this.$i18n.locale = val;
+      this.$i18n.locale = val
     },
     showNav() {
-      this.store.toggleNavigation;
+      if (this.isNavOpen === true)
+        this.store.$patch({
+          isNavOpen: false
+        });
+      else
+        this.store.$patch({
+          isNavOpen: true
+        });
+
     },
     changeTheme() {
-      if (this.theme == "light") this.store.toggleTheme("dark");
-      else this.store.toggleTheme("light");
-      document.documentElement.setAttribute("data-theme", this.theme);
+      if (this.theme == "light") 
+        this.store.$patch({
+          theme: "dark"
+        });
+      else 
+        this.store.$patch({
+          theme: "light"
+        });
+      document.documentElement.setAttribute("data-theme", this.theme)
     }
   },
   computed: {
-    ...mapState(useStore, ["isNavOpen", "theme"]),
+    ...mapState(useStore, ["isNavOpen", "theme", "setDarkTheme", "setLightTheme", "openNav", "closeNav"]),
   },
   components: {
     SidebarComponent
@@ -319,6 +303,9 @@ export default {
   border: 1px solid var(--btn-border-color) !important;
   background-color: var(--btn-bg-color) !important;
   color: var(--btn-font-color) !important;
+}
+button {
+  background: transparent;
 }
 .lang {
   color: var(--sidebar-font-color) !important;

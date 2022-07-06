@@ -8,32 +8,32 @@
             :key="index"
             v-bind:class="index === ranking_active ? 'active' : ''"
             >
-            <button class="btn bg-white text-dark" @click="changeRanking(index)">{{ rank.name }}</button>
+              <button class="btn bg-white text-dark" @click="changeRanking(index)">{{ rank.name }}</button>
             </li>
         </ul>
         <div class="w-100 bg-light text-dark px-3 px-lg-4 py-4">
-            <div class="d-flex align-items-center">
-            <h6 class="mr-3 mr-lg-5">Position</h6>
-            <h6 class="text-center mr-3 mr-lg-5">Player</h6>
-            <h6 class="text-center mr-2 mr-lg-5">Guild</h6>
-            <h6 class="w-100 text-right">Rank</h6>
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="me-3 me-lg-5">Position</h6>
+              <h6 class="text-center me-3 me-lg-5">Player</h6>
+              <h6 class="text-center me-2 me-lg-5">Guild</h6>
+              <h6 class="w-100 text-right">Rank</h6>
             </div>
             <hr />
             <div v-show="ranking_active === 0">
-            <div
-                class="d-flex align-items-center pt-2"
-                v-bind:class="index === 0 ? 'font-weight-bold' : ''"
-                v-for="(player, index) in gathering_players"
-                :key="index"
-            >
-                <h6 class="mr-3 mr-lg-5">#{{ index + 1 }}</h6>
-                <h6 class="text-center mr-3 mr-lg-5">{{ player.name }}({{ player.family }})</h6>
-                <h6 class="text-center mr-2 mr-lg-5">{{ player.guild }}</h6>
-                <h3 class="w-100 text-right" v-if="index === 0">{{ player.level }}</h3>
-                <h4 class="w-100 text-right" v-else-if="index === 1">{{ player.level }}</h4>
-                <h5 class="w-100 text-right" v-else-if="index === 2">{{ player.level }}</h5>
-                <h6 class="w-100 text-right" v-else>{{ player.level }}</h6>
-            </div>
+              <div
+                  class="d-flex justify-content-between align-items-center pt-2"
+                  v-bind:class="index === 0 ? 'font-weight-bold' : ''"
+                  v-for="(player, index) in gathering_players"
+                  :key="index"
+              >
+                  <h6 class="me-3 me-lg-5">#{{ index + 1 }}</h6>
+                  <h6 class="text-center me-3 me-lg-5">{{ player.name }}({{ player.family }})</h6>
+                  <h6 class="text-center me-2 me-lg-5">{{ player.guild }}</h6>
+                  <h3 class="w-100 text-right" v-if="index === 0">{{ player.level }}</h3>
+                  <h4 class="w-100 text-right" v-else-if="index === 1">{{ player.level }}</h4>
+                  <h5 class="w-100 text-right" v-else-if="index === 2">{{ player.level }}</h5>
+                  <h6 class="w-100 text-right" v-else>{{ player.level }}</h6>
+              </div>
             </div>
         </div>
     </div>
@@ -44,6 +44,8 @@ export default {
   data() {
     return {
       rankings: [
+        { name: "Level", icon: "" },
+        { name: "Silver", icon: "" },
         { name: "Gathering", icon: "" },
         { name: "Fishing", icon: "" },
         { name: "Hunting", icon: "" },
@@ -57,11 +59,40 @@ export default {
       ],
       ranking_active: 0,
       gathering_players: [
-        { name: "Somar", family: "Family", guild: "SOLO", level: "Guru 2" },
-        { name: "Somar1", family: "Family", guild: "SOLO", level: "Guru 1" },
-        { name: "Somar2", family: "Family", guild: "SOLO", level: "Master 15" },
-        { name: "Somar3", family: "Family", guild: "SOLO", level: "Master 10" },
-        { name: "Somar4", family: "Family", guild: "SOLO", level: "Master 8" }
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
+      ],
+      fishing_players: [
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
+      ],
+      hunting_players: [
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
+      ],
+      cooking_players: [
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
+      ],
+      alchemy_players: [
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
+      ],
+      processing_players: [
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
+      ],
+      training_players: [
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
+      ],
+      trading_players: [
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
+      ],
+      farming_players: [
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
+      ],
+      sailing_players: [
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
+      ],
+      level_players: [
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
+      ],
+      silver_players: [
+        { name: "SOON", family: "SOON", guild: "SOON", level: "SOON" },
       ]
     };
   },

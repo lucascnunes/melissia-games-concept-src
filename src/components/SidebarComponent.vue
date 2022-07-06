@@ -22,11 +22,13 @@ export default {
   data: () => ({}),
   methods: {
     closeSidebarPanel() {
-      this.store.toggleNavigation;
+      this.store.$patch({
+        isNavOpen: false
+      });
     }
   },
   computed: {
-    ...mapState(useStore, ["isNavOpen"]),
+    ...mapState(useStore, ["isNavOpen", "closeNav"]),
   }
 };
 </script>

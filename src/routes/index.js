@@ -18,19 +18,22 @@ const router = createRouter({
 })
 
 router.beforeResolve((to, _, next) => {
-    // If this isn't an initial page load.
-    if (to.name) {
-      // Start the route progress bar.
-      useStore.toggleLoading;
-    }
-    useStore.toggleNavigation;
-    next()
+  const store = useStore()
+
+  // If this isn't an initial page load.
+  if (to.name) {
+    // Start the route progress bar.
+    store.loading = true;
+  }
+  store.isNavOpen = false;
+  next()
 })
   
 router.afterEach(() => {
-    // Complete the animation of the route progress bar.
+  const store = useStore()
+  // Complete the animation of the route progress bar.
     setTimeout(() => {
-        useStore.toggleLoading;
+      store.loading = false;
     }, 1000);
 })
   

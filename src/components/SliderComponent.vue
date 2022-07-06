@@ -1,20 +1,12 @@
 <template>
   <div>
     <carousel
-      :autoplay="true"
-      :autoplayHoverPause="true"
+      :pauseAutoplayOnHover="true"
       :perPage="1"
-      :autoplayTimeout="6000"
-      :paginationSize="8"
-      :loop="true"
-      :mouse-drag="false"
-      :navigationEnabled="true"
-      :centerMode="false"
-      paginationActiveColor="#f3ca7d98"
-      paginationColor="#232323"
-      class="slider-hero"
+      :autoplay="6000"
+      :mouseDrag="true"
     >
-      <slide class="d-lg-flex justify-content-lg-center align-items-lg-center">
+      <slide>
         <div class="slider-image slider-image-1" style="
           background-image: url('/img/back3.jpg')
         "></div>
@@ -27,7 +19,7 @@
           </router-link> -->
           <a href="https://melissia.games/office/login" class="btn btn-light px-5 py-2 mb-2 mr-3">
             <font-awesome-icon :icon="['fa', 'user']" class="mr-2" />
-            Enter your account
+            {{ $t("Enter your account") }}
           </a>
           <!-- <router-link to="/signup" class="btn btn-light px-5 py-2 mb-2">
             <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" />
@@ -35,11 +27,11 @@
           </router-link> -->
           <a href="https://melissia.games/office/register" class="btn btn-light px-5 py-2 mb-2">
             <font-awesome-icon :icon="['fa', 'user-plus']" class="mr-2" />
-            Create your account
+            {{ $t("Create your account") }}
           </a>
         </div>
       </slide>
-      <slide class="d-lg-flex justify-content-lg-center align-items-lg-center">
+      <slide>
         <div class="slider-image slider-image-2" style="
           background-image: url('/img/back2.jpg')
         "></div>
@@ -68,7 +60,7 @@
             <font-awesome-icon
               :icon="['fa', 'info']"
               class="mr-2"
-            />Server information
+            />{{ $t("Server information") }}
           </a>
           <a
             href="https://forum.melissia.games/index.php"
@@ -94,107 +86,58 @@
           </a>
         </div>
       </slide>
+      <template #addons>
+        <Navigation />
+        <Pagination />
+      </template>
     </carousel>
   </div>
 </template>
 
 <script>
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel';
+import 'vue3-carousel/dist/carousel.css';
+
 export default {
   data() {
     return {};
   },
+  components: {
+    Carousel,
+    Slide, 
+    Navigation, 
+    Pagination,
+  },
   mounted() {
-    document
-      .getElementsByClassName("VueCarousel-slide")[0]
-      .classList.add("VueCarousel-slide-active");
+    // document
+    //   .getElementsByClassName("slider-hero")[0]
+    //   .classList.add("VueCarousel-slide-active");
   },
 };
 </script>
 
 <style>
-.slider-hero {
-  display: flex;
-  color: #fff;
-  background: #232323;
-}
-.VueCarousel-slide {
-  height: 100vh;
-  padding: 10em;
-  position: relative;
-}
-.slider-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+
+.carousel__item {
+  min-height: 200px;
   width: 100%;
-  height: 100vh;
-  filter: blur(8px) brightness(0.4);
-  -webkit-filter: blur(1.5px) brightness(0.4);
-  animation: slideShow 24s linear infinite 0s;
-  -o-animation: slideShow 24s linear infinite 0s;
-  -moz-animation: slideShow 24s linear infinite 0s;
-  -webkit-animation: slideShow 24s linear infinite 0s;
-}
-.slider-image-1 {
-  background-size: cover !important;
-  background-position: top center;
-}
-.slider-image-2 {
-  background-size: cover !important;
-  background-position: top center;
-}
-@media only screen and (max-width: 600px) {
-  .slider-image-1 {
-    background-position: 50% !important;
-  }
-  .slider-image-2 {
-    background-position: 67% !important;
-  }
-}
-.VueCarousel-inner {
-  transition: none !important;
+  background-color: var(--vc-clr-primary);
+  color:  var(--vc-clr-white);
+  font-size: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.VueCarousel-slide {
-  opacity: 0 !important;
-  flex-basis: 0;
+.carousel__slide {
+  padding: 10px;
 }
 
-.VueCarousel-slide-active {
-  transition: all 0.8s !important;
-  opacity: 1 !important;
-}
-.VueCarousel-pagination {
-  position: absolute;
-  bottom: 30px;
-}
-.VueCarousel-navigation-button.VueCarousel-navigation-prev {
-  position: absolute !important;
-  color: #fff !important;
-  left: 80px !important;
-  transition: opacity 4s !important;
-}
-.VueCarousel-navigation-button.VueCarousel-navigation-prev.VueCarousel-navigation--disabled {
-  opacity: 0;
-}
-.VueCarousel-navigation-button.VueCarousel-navigation-next {
-  position: absolute !important;
-  color: #fff !important;
-  right: 80px !important;
-  transition: opacity 4s !important;
-}
-.VueCarousel-navigation-button.VueCarousel-navigation-next.VueCarousel-navigation--disabled {
-  opacity: 0;
-}
-@media only screen and (max-width: 600px) {
-  .VueCarousel-navigation-button {
-    display: none;
-  }
-  .VueCarousel-slide {
-    padding: 10em 10px;
-  }
+.carousel__prev,
+.carousel__next {
+  box-sizing: content-box;
+  border: 5px solid white;
 }
 
 @keyframes slideShow {

@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
-import { createI18n } from 'vue-i18n'
 import { createPinia } from 'pinia'
 import "bootstrap/dist/css/bootstrap.css";
 import router from "./routes";
+import { i18n } from './i18n.js'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -26,7 +26,6 @@ import {
 
 import App from './App.vue'
 
-
 library.add(
     faUserPlus,
     faUser,
@@ -44,13 +43,13 @@ library.add(
   );
 
 const pinia = createPinia()
-const i18n = createI18n()
-  
+
 const app = createApp(App)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
-app.use(router)
+
 app.use(pinia)
+app.use(router)
 app.use(i18n)
 
 app.mount('#app')
