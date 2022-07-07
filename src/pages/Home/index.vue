@@ -21,7 +21,7 @@
           <h1 class="pt-5">{{ $t("Welcome to Melissia Games") }},</h1>
           <h3 class="mb-4">{{ $t("New client online") }}!</h3>
           
-          <div class="d-lg-flex flex-column justify-content-around align-items-center pt-5">
+          <div class="d-lg-flex flex-wrap justify-content-around align-items-center pt-5">
             <a href="https://melissia.games/office/login" class="btn btn-light px-5 py-2 mb-2 me-3">
               <font-awesome-icon :icon="['fa', 'user']" class="me-2" />
               {{ $t("Enter your account") }}
