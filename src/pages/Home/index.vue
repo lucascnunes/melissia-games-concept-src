@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="parallax noselect d-flex justify-content-center align-items-center" style="
-    background-image: url('img/back1.jpg')
+    background-image: url('img/back1.jpeg')
     ">
       <div class="col-12 col-lg-8 text-center">
           <div class="d-flex justify-content-center align-items-center">
